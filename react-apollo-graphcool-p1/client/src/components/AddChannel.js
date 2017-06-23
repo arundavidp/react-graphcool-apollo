@@ -10,12 +10,12 @@ const AddChannel = ({ mutate }) => {
       mutate({ 
         variables: { name: evt.target.value },
         //refetchQueries: [ { query: channelsListQuery }]
-        optimiticResponse: {
-          __typename: "Mutation",
-          addChannel: {
+        optimisticResponse: {
+          //__typename: "Mutation",
+          createChannel: {
             id: Math.round(Math.random() * -1000000),
             name: evt.target.value,
-            __typename: "Channel",
+            __typename: 'Channel',
           }
         },
         update: (store, { data: { createChannel } }) => {
@@ -42,7 +42,7 @@ return (
   );
 };
 const addChannelMutation = gql`
-  mutation addChannel($name: String!) {
+  mutation createChannel($name: String!) {
     createChannel(name: $name) {
       id
       name
