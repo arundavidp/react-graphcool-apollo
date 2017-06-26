@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Switch
+} from 'react-router-dom';
+
 import './App.css';
 import ChannelsListWithData from './components/ChannelsListWithData';
+import NotFound from './components/NotFound';
+import ChannelDetails from './components/ChannelDetails';
 
 import {
   //ApolloClient,
   ApolloProvider,
+  toIdValue,
 } from 'react-apollo';
 
 import { ApolloClient, createNetworkInterface } from 'apollo-client';
@@ -28,27 +38,38 @@ const mockNetworkInterface = mockNetworkInterfaceWithSchema({ schema });
 const networkInterface = createNetworkInterface({ uri: 'https://api.graph.cool/simple/v1/cj434xa4hn9x00123fz32zfe4' });
 networkInterface.use([{
   applyMiddleware(req, next) {
-    setTimeout(next, 5000);
+    setTimeout(next, 500);
   }
 }])
 
+function dataIdFromObject (result) {
+  if (result.__typename) {
+    if (result.id !== undefined) {
+      return `${result.__typename}:${result.id}`;
+    }
+  }
+  return null;
+}
+
 const client = new ApolloClient({
-  networkInterface
+  networkInterface,
+  dataIdFromObject,
 });
-
-
 
 class App extends Component {
   render() {
     return (
       <ApolloProvider client={client}>
-        <div className="App">
-          <div className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h2>Welcome to Apollo</h2>
+       <BrowserRouter>
+          <div className="App">
+            <Link to="/" className="navbar">React + GraphQL Tutorial</Link>
+            <Switch>
+              <Route exact path="/" component={ChannelsListWithData}/>
+              <Route path="/channel/:channelId" component={ChannelDetails}/>
+              <Route component={NotFound}/>
+            </Switch>
           </div>
-          <ChannelsListWithData />
-        </div>
+        </BrowserRouter>
       </ApolloProvider>
     );
   }

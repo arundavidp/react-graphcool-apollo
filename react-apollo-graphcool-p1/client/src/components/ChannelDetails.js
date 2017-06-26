@@ -22,3 +22,18 @@ const ChannelDetails = () => {
     </div>
   );
 }
+
+export const channelDetailsQuery = gql`
+  query ChannelDetailsQuery($channelId : ID!) {
+    channel(id: $channelId) {
+      id
+      name
+      messages {
+        id
+        text
+      }
+    }
+  }
+`;
+
+export default (ChannelDetails);

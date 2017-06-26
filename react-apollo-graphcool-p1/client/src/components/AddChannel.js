@@ -42,7 +42,7 @@ return (
   );
 };
 const addChannelMutation = gql`
-  mutation createChannel($name: String!) {
+  mutation addChannel($name: String!) {
     createChannel(name: $name) {
       id
       name
