@@ -176,3 +176,7 @@ div.message span {
   position: absolute;
   left: 10px;
 }
+
+div.message.optimistic {
+  color: red;
+}
