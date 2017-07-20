@@ -10,7 +10,7 @@ import {
 
 const ChannelDetails = ({ data: {loading, error, Channel}, match }) => {
   if (loading) {
-    return <p>Loading...</p>;
+    return <ChannelPreview channelId={match.params.channelId}/>;
   }
   if (error) {
     return <p>{error.message}</p>;
@@ -24,7 +24,7 @@ const ChannelDetails = ({ data: {loading, error, Channel}, match }) => {
       <div className="channelName">
         {Channel.name}
       </div>
-      <MessageList messages={Channel.messages} />
+      <MessageList messages={Channel.messages} /> 
     </div>
   );
 }

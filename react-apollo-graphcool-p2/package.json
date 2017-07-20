@@ -1,0 +1,7 @@
+{
+  "name": "react-apollo-graphcool-p2",
+  "version": "1.0.0",
+  "description": "Channel based chat application build with React Apollo and Graphcool using the following tutorial https://dev-blog.apollodata.com/full-stack-react-graphql-tutorial-582ac8d24e3b. Practice 2.",
+  "main": "",
+  "license": "MIT"
+}

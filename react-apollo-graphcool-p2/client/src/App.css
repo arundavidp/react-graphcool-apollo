@@ -1,0 +1,41 @@
+
+.App {
+  text-align: center;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: gold;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/*
+pt2 pb2 pl3 pr3 bb b--black-60 black-60 fw4 w-20 tl
+li {
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  width: 20%;
+  text-align: left;
+}
+*/
