@@ -12,7 +12,7 @@ html, body {
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 60px;
 }
 
 .App-header {
@@ -37,5 +37,19 @@ li {
   font-weight: 400;
   width: 20%;
   text-align: left;
+}
+*/
+
+/*
+ph3 ph5-ns pb5 bg-yellow black-70
+main {
+  
+}
+*/
+
+/*
+flex items-center bt b--black-10 ph2 pv1 bg-lightest-blue navy tl lh-title fw2 f3
+navbar {
+  
 }
 */
