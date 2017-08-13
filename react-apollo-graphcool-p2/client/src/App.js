@@ -10,7 +10,11 @@ import {
 } from 'react-apollo';
 
 const client = new ApolloClient({
-    networkInterface: createNetworkInterface({uri: 'https://api.graph.cool/simple/v1/cj5cyfgp7ex980122efsbal1n'})
+    networkInterface: createNetworkInterface({uri: 'https://api.graph.cool/simple/v1/cj5cyfgp7ex980122efsbal1n'}).use([{
+      applyMiddleware(req, next) {
+        setTimeout(next, 5000);
+      }
+    }])
   });
 
 class App extends Component {

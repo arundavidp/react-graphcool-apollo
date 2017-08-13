@@ -9,7 +9,15 @@ const AddChannel = ({ mutate }) => {
       console.log(evt.target.value);
       mutate({
         variables: { name: evt.target.value },
-        refetchQueries: [{ query: channelsListQuery }],
+        update: (store, { data: { createChannel } }) => {
+          const data = store.readQuery({query: channelsListQuery});
+          
+          //console.log(addChannel);
+          
+          data.allChannels.push(createChannel);
+          
+          store.writeQuery({ query: channelsListQuery, data });
+        },
       })
       .then( res => {
         evt.target.value = '';
