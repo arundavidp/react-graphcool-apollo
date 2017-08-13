@@ -15,14 +15,14 @@ const ChannelsList = ({data: {allChannels, error, loading}}) => {
     }
     
     return (
-      <ul className="list pl0 mt0">
-        <li className="pt2 pb2 pl3 pr3 bb b--black-10 black-80 fw4 w-20 tl"><AddChannel /></li>
-        {allChannels.map(ch => (<li key={ch.id} className="pt2 pb2 pl3 pr3 bb b--black-10 black-80 fw4 w-20 tl">{ch.name}</li>))}
-      </ul>
+      <div className="channelsList pv0 ph4">
+        <AddChannel />
+        {allChannels.map(ch => (<div key={ch.id} className="channel relative pt2 pb2 pl4 pr3 bb b--black-10 black-80 fw3 w-20 tl f5">{ch.name}</div>))}
+      </div>
     );
   };
   
-const channelsListQuery = gql`
+export const channelsListQuery = gql`
   query ChannelsListQuery {
     allChannels {
       id
@@ -31,4 +31,6 @@ const channelsListQuery = gql`
   }
 `
 
-export default graphql(channelsListQuery)(ChannelsList);
+export default graphql(channelsListQuery, {
+  options: { pollInterval: 5000 },
+})(ChannelsList);

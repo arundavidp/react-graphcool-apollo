@@ -22,7 +22,7 @@ class App extends Component {
             <img src={logo} className="h3 w3 mr1" alt="logo" />
             <div className="flex-auto">Welcome to Apollo</div>
           </div>
-          <div className="main ph3 ph5-ns pb5 bg-yellow black-70"><ChannelsListWithData /></div>
+          <div className="main"><ChannelsListWithData /></div>
         </div>
       </ApolloProvider>
     );

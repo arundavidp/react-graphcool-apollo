@@ -1,7 +1,9 @@
 
+/*
 .App {
   text-align: center;
 }
+*/
 
 html, body {
   padding: 0;
@@ -42,14 +44,62 @@ li {
 
 /*
 ph3 ph5-ns pb5 bg-yellow black-70
-main {
+.main {
   
 }
 */
 
 /*
 flex items-center bt b--black-10 ph2 pv1 bg-lightest-blue navy tl lh-title fw2 f3
-navbar {
+.navbar {
   
 }
 */
+
+/*
+pv0 ph2 relative
+div.channelsList {
+  padding: 0 30px;
+  position: relative;
+}
+*/
+
+/*
+relative pt2 pb2 pl4 pr3 bb b--black-10 black-80 fw3 w-20 tl f5
+div.channel {
+  position: relative;
+}
+*/
+
+
+.newchannel {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: 300ms all ease-out;
+}
+
+/*
+div.channelsList:before {
+  content: "+";
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 7.5px;
+  left: 40px;
+  color: rgba(0, 0, 0, 0.6);
+}
+*/
+
+.plus-button {
+  /*height: 10px;
+  width: 10px;*/
+  top: 7.5px;
+  left: 10px;
+}
+
+.newchannel:hover:focus {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  transition: 300ms all ease-out;
+}
