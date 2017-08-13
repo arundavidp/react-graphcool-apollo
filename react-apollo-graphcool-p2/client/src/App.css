@@ -99,7 +99,8 @@ div.channelsList:before {
   left: 10px;
 }
 
-.newchannel:hover:focus {
+.newchannel:focus {
+  font-weight: 300;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
   transition: 300ms all ease-out;
 }

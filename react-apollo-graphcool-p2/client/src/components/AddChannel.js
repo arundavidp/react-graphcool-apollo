@@ -9,6 +9,13 @@ const AddChannel = ({ mutate }) => {
       console.log(evt.target.value);
       mutate({
         variables: { name: evt.target.value },
+        optimisticResponse: {
+          createChannel: {
+            name: evt.target.value,
+            id: Math.round(Math.random() * -1000000),
+            __typename: 'Channel'
+          }
+        },
         update: (store, { data: { createChannel } }) => {
           const data = store.readQuery({query: channelsListQuery});
           
@@ -28,7 +35,7 @@ const AddChannel = ({ mutate }) => {
   return (
     <div className="addchannel relative">
       <div className="plus-button absolute dib h1 w1 black-60">+</div>
-      <input type="text" placeholder="New Channel" className="newchannel relative pt2 pb2 pl4 pr3 outline-0 bg-transparent w-20 black fw3 f5" onKeyUp={handleKeyUp} />
+      <input type="text" placeholder="New Channel" className="newchannel relative pt2 pb2 pl4 pr3 outline-0 bg-transparent w-20 red fw1 f5" onKeyUp={handleKeyUp} />
     </div>
   );
 };
